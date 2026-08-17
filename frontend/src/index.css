@@ -1,0 +1,6 @@
+/* index.css — minimal global reset (all design tokens live in App.css) */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
