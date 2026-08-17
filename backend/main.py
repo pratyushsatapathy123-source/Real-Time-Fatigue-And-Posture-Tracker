@@ -14,7 +14,6 @@ import math
 
 import cv2
 import numpy as np
-import mediapipe as mp
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -23,8 +22,10 @@ from fastapi.middleware.cors import CORSMiddleware
 # Actual model instances are created PER WebSocket connection inside
 # the endpoint to avoid thread-safety / AttributeError issues.
 # ──────────────────────────────────────────────────────────────────────
-mp_face_mesh = mp.solutions.face_mesh
-mp_pose = mp.solutions.pose
+import mediapipe as mp
+from mediapipe.python.solutions import face_mesh as mp_face_mesh
+from mediapipe.python.solutions import pose as mp_pose
+from mediapipe.python.solutions import drawing_utils as mp_drawing
 
 # ── Face Mesh 468-point eye landmark indices ─────────────────────────
 #   Each eye uses 6 points:  P1, P2, P3, P4, P5, P6
